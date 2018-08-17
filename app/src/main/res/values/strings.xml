@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Camera Upload Example</string>
+    <string name="permission_request">Permission Request</string>
+    <string name="permission_request_context">
+        We use your device latitude and longitude when posting to residents timeline
+        in order to identify from which CareHome you are posting from!\n\nThis information helps us track down if posts are legit in order to maintain security of our services.
+    </string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="image_details">IMAGE DETAILS</string>
+    <string name="image_placeholder">Placeholder for image</string>
+    <string name="title">TITLE</string>
+    <string name="description">DESCRIPTION</string>
+    <string name="success">SUCCESS</string>
+</resources>

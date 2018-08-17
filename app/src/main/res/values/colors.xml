@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!--Main Brand - Copper Rose-->
+    <color name="mainBrandColour">#8F6362</color>
+    <!--Light Shade - Desert Storm-->
+    <color name="lightShade">#F7F7F6</color>
+    <!--Light Accent - Dusty Gray-->
+    <color name="lightAccent">#9F9196</color>
+    <!--Dark Shade - Tuna-->
+    <color name="darkShade">#36353E</color>
+    <!--Dark Accent - Sandal-->
+    <color name="darkAccent">#AF816F</color>
+
+    <!--Success Accent - Fruit Salad-->
+    <color name="successAccent">#609855</color>
+    <!--Warning Accent - Zest-->
+    <color name="warningAccent">#DD881D</color>
+    <!--Danger Accent - Pomegranate-->
+    <color name="dangerAccent">#F44336</color>
+
+    <!--Misc colours-->
+    <color name="lightAccentWhite">#FFF</color>
+    <color name="darkAccentGray">#A1A1A1</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- MaterialDrawer specific values -->
+    <!--<color name="material_drawer_background">@color/mainBrandColour</color>-->
+    <!--<color name="material_drawer_primary_text">@color/lightAccentWhite</color>-->
+    <!--<color name="material_drawer_primary_icon">@color/lightAccentWhite</color>-->
+    <!--<color name="material_drawer_secondary_text">@color/colorPrimary</color>-->
+    <!--<color name="material_drawer_hint_text">@color/darkAccentGray</color>-->
+    <!--<color name="material_drawer_divider">@color/lightAccent</color>-->
+    <!--<color name="material_drawer_selected">@color/colorPrimaryDark</color>-->
+    <!--<color name="material_drawer_selected_text">@color/lightAccentWhite</color>-->
+    <!--<color name="material_drawer_header_selection_text">@color/lightAccentWhite</color>-->
+</resources>

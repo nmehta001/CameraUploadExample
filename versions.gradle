@@ -1,0 +1,150 @@
+/**
+ * Shared file between builds so that they can all use the same dependencies and
+ * maven repositories.
+ **/
+ext.deps = [:]
+def versions = [:]
+
+// Android
+versions.androidx = "1.0.0-beta01"
+versions.androidx_arch = "2.0.0-beta01"
+versions.android_gradle_plugin = '3.2.0-beta05'
+versions.android_ktx = "0.3"
+versions.android_support = "27.1.1"
+versions.constraint_layout = "1.1.2"
+
+// Architecture Components
+versions.arch_lifecycle = "1.1.1"
+versions.arch_room = "1.1.1"
+
+// Dagger
+versions.dagger = "2.17"
+
+// Kotlin
+versions.anko = "0.10.5"
+versions.kotlin = "1.2.60"
+
+// Google
+versions.google_location = "15.0.1"
+versions.google_firestore = "17.0.3"
+
+// OkHttp
+versions.okhttp3 = "3.11.0"
+
+// Retrofit
+versions.retrofit = "2.4.0"
+
+// Timber
+versions.timber = "4.7.0"
+
+// Third party
+versions.material_dialogs = "0.9.6.0"
+versions.material_drawer_kt = "1.3.6"
+versions.material_search_view = "1.4.0"
+
+// Testing
+versions.espresso = "3.0.2"
+versions.junit = "4.12"
+versions.mockito_core = "2.19.0"
+
+def deps = [:]
+
+def android = [:]
+android.android_ktx = "androidx.core:core-ktx:$versions.android_ktx"
+android.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+android.app_compat = "com.android.support:appcompat-v7:$versions.support"
+android.constraint_layout = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
+android.design = "com.android.support:design:$versions.support"
+android.recyclerview = "com.android.support:recyclerview-v7:$versions.support"
+android.v4 = "com.android.support:support-v4:$versions.support"
+// AndroidX
+//support.app_compat = "androidx.appcompat:appcompat:$versions.androidx"
+//support.recyclerview = "androidx.recyclerview:recyclerview:$versions.androidx"
+//support.design = "com.google.android.material:material:$versions.androidx"
+//support.v4 = "androidx.legacy:legacy-support-v4:$versions.androidx"
+//support.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+deps.android = android
+
+def arch = [:]
+arch.lifecycle_extensions = "android.arch.lifecycle:extensions:$versions.arch_lifecycle"
+arch.lifecycle_java8 = "android.arch.lifecycle:common-java8:$versions.arch_lifecycle"
+arch.lifecycle_compiler = "android.arch.lifecycle:compiler:$versions.arch_lifecycle"
+// AndroidX
+//lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime:2.0.0-alpha1"
+//lifecycle.extensions = "androidx.lifecycle:lifecycle-extensions:2.0.0-alpha1"
+//lifecycle.java8 = "androidx.lifecycle:lifecycle-common-java8:2.0.0-alpha1"
+//lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:2.0.0-alpha1"
+arch.room_runtime = "android.arch.persistence.room:runtime:$versions.arch_room"
+arch.room_compiler = "android.arch.persistence.room:compiler:$versions.arch_room"
+// AndroidX
+//room.runtime = "androidx.room:room-runtime:2.0.0-alpha1"
+//room.compiler = "androidx.room:room-compiler:2.0.0-alpha1"
+deps.arch = arch
+
+def dagger = [:]
+dagger.runtime = "com.google.dagger:dagger:$versions.dagger"
+dagger.android = "com.google.dagger:dagger-android:$versions.dagger"
+dagger.android_support = "com.google.dagger:dagger-android-support:$versions.dagger"
+dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+dagger.android_support_compiler = "com.google.dagger:dagger-android-processor:$versions.dagger"
+deps.dagger = dagger
+
+def kotlin = [:]
+kotlin.anko = "org.jetbrains.anko:anko-coroutines:$versions.anko"
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
+kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+kotlin.allopen = "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin"
+kotlin.android_extensions = "org.jetbrains.kotlin:kotlin-android-extensions:$versions.kotlin"
+deps.kotlin = kotlin
+
+def google = [:]
+google.firestore = "com.google.firebase:firebase-firestore:$versions.google_firestore"
+google.location = "com.google.android.gms:play-services-location:$versions.google_location"
+deps.google = google
+
+def okhttp = [:]
+okhttp.okhttp3 = "com.squareup.okhttp3:okhttp:$versions.okhttp3"
+okhttp.logging_interceptor = "com.squareup.okhttp3:logging-interceptor:$versions.okhttp3"
+deps.okhttp = okhttp
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+//retrofit.mock = "com.squareup.retrofit2:retrofit-mock:$versions.retrofit"
+retrofit.moshi_converter = "com.squareup.retrofit2:converter-moshi:$versions.retrofit"
+deps.retrofit = retrofit
+
+deps.timber = "com.jakewharton.timber:timber:$versions.timber"
+
+def thirdParty = [:]
+thirdParty.material_drawer_kt = "co.zsmb:materialdrawer-kt:$versions.material_drawer_kt"
+thirdParty.material_dialogs = "com.afollestad.material-dialogs:core:$versions.material_dialogs"
+thirdParty.material_search_view = "com.miguelcatalan:materialsearchview:$versions.material_search_view"
+deps.thirdParty = thirdParty
+
+def testing = [:]
+testing.core_testing = "android.arch.core:core-testing:$versions.arch_lifecycle"
+//arch_core.testing = "androidx.arch.core:core-testing:$versions.androidx_arch"
+testing.espresso_core = "com.android.support.test.espresso:espresso-core:$versions.espresso"
+testing.espresso_contrib = "com.android.support.test.espresso:espresso-contrib:$versions.espresso"
+testing.espresso_intents = "com.android.support.test.espresso:espresso-intents:$versions.espresso"
+testing.junit = "junit:junit:$versions.junit"
+testing.mockito_core = "org.mockito:mockito-core:$versions.mockito_core"
+testing.mockito_android = "org.mockito:mockito-android:$versions.mockito_core"
+testing.mockito_inline = "org.mockito:mockito-inline:$versions.mockito_core"
+deps.testing = testing
+
+def build_versions = [:]
+build_versions.min_sdk = 21
+build_versions.target_sdk = 28
+ext.build_versions = build_versions
+
+ext.deps = deps
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.maven { url 'https://maven.google.com' }
+}
+
+ext.addRepos = this.&addRepos
