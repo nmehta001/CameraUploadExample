@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     private var doubleBackToExitPressedOnce: Boolean = false
     private lateinit var mainView: View
 
-
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,8 +78,6 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     }
 
     private fun requestPermissions() {
-        // Here, thisActivity is the current activity
-
         val permission = Manifest.permission.WRITE_EXTERNAL_STORAGE
 
         if (ContextCompat.checkSelfPermission(
