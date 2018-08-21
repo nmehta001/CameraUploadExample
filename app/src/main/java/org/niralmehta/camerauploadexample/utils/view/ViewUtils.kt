@@ -1,16 +1,16 @@
 package org.niralmehta.camerauploadexample.utils.view
 
 import android.content.Context
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
-import android.support.v4.view.ViewCompat
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import org.niralmehta.camerauploadexample.R
 
 
@@ -52,7 +52,7 @@ fun View.snack(message: String, length: Int = Snackbar.LENGTH_LONG) {
     val snack = Snackbar.make(this, message, length)
     snack.newStyle(this.context)
     val mainTextView =
-        snack.view.findViewById(android.support.design.R.id.snackbar_text) as TextView
+        snack.view.findViewById(com.google.android.material.R.id.snackbar_text) as TextView
     mainTextView.setTextColor(snack.context.getResColor(R.color.lightAccentWhite))
     snack.show()
 }

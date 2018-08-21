@@ -113,19 +113,13 @@ dependencies {
         transitive = true
     }
 
-    implementation(
-            deps.thirdParty.material_dialogs,
-            deps.thirdParty.material_search_view
-    )
-
     // Android Testing Support Library's runner and rules
     androidTestImplementation(
-            deps.testing.core_testing,
             deps.testing.junit
     )
 
     testImplementation(
-            deps.testing.core_testing,
+            deps.testing.arch_core,
             deps.testing.espresso_core,
             deps.testing.espresso_contrib,
             deps.testing.espresso_intents,

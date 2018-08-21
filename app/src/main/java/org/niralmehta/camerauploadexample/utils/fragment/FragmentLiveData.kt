@@ -1,8 +1,8 @@
 package org.niralmehta.camerauploadexample.utils.fragment
 
-import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 
 /**
  * Fix to re-subscribe observer, therefore avoiding duplicates

@@ -1,6 +1,6 @@
 package org.niralmehta.camerauploadexample.modules.upload.viewmodel
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import android.graphics.Bitmap
 import android.util.Base64
 import org.niralmehta.camerauploadexample.modules.upload.datakt.ImagePayload

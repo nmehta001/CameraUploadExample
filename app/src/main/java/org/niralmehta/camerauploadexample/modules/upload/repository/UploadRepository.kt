@@ -1,7 +1,7 @@
 package org.niralmehta.camerauploadexample.modules.upload.repository
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import org.jetbrains.anko.coroutines.experimental.bg
 import org.niralmehta.camerauploadexample.api.ImgurService
 import org.niralmehta.camerauploadexample.datakt.DataStatus
