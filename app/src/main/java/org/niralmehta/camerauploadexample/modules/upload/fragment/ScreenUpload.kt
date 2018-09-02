@@ -2,14 +2,11 @@ package org.niralmehta.camerauploadexample.modules.upload.fragment
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.fab_menu.*
 import kotlinx.android.synthetic.main.screen_upload.*
 import org.niralmehta.camerauploadexample.BuildConfig
 import org.niralmehta.camerauploadexample.R
@@ -19,9 +16,10 @@ import org.niralmehta.camerauploadexample.modules.upload.datakt.ImagePayload
 import org.niralmehta.camerauploadexample.modules.upload.viewmodel.UploadViewModel
 import org.niralmehta.camerauploadexample.screens.ScreenCamera
 import org.niralmehta.camerauploadexample.utils.api.Status
-import org.niralmehta.camerauploadexample.utils.fragment.reObserve
+import org.niralmehta.camerauploadexample.utils.fragment.addScreen
 import org.niralmehta.camerauploadexample.utils.interfaces.OnBackPressedListener
-import org.niralmehta.camerauploadexample.utils.view.getResDrawable
+import org.niralmehta.camerauploadexample.utils.view.getAppBarFab
+import org.niralmehta.camerauploadexample.utils.view.setFabIcon
 import org.niralmehta.camerauploadexample.utils.view.snack
 import javax.inject.Inject
 
@@ -32,6 +30,11 @@ class ScreenUpload : Fragment(), Injectable, OnBackPressedListener {
     private lateinit var uploadViewModel: UploadViewModel
     private lateinit var uploadView: View
     lateinit var photo: Bitmap
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -48,17 +51,27 @@ class ScreenUpload : Fragment(), Injectable, OnBackPressedListener {
 
         upload_image_preview.setImageBitmap(photo)
 
-        fab.setImageDrawable(getResDrawable(R.drawable.ic_upload))
-        fab1.visibility = View.GONE
-        fab2.visibility = View.GONE
+        setFabIcon(activity, R.drawable.ic_upload_dark, this)
 
-        fab.setOnClickListener {
+        getAppBarFab(activity)?.setOnClickListener {
             uploadImage()
         }
     }
 
-    private fun uploadImage() {
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.menu_main, menu)
+        menu?.findItem(R.id.action_upload)?.isVisible = false
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.action_camera -> addScreen(ScreenCamera(), ScreenCamera.SCREEN_TAG, true, true)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun uploadImage() {
         val title = upload_image_title_field.text.toString()
         val description = upload_image_description_field.text.toString()
         val image = uploadViewModel.get64BaseImage(photo)
@@ -71,7 +84,7 @@ class ScreenUpload : Fragment(), Injectable, OnBackPressedListener {
         )
 
         val clientId = BuildConfig.CLIENTID
-        uploadViewModel.uploadImage(clientId, payload).reObserve(this, Observer { resource ->
+        uploadViewModel.uploadImage(clientId, payload).observe(this, Observer { resource ->
             if (resource != null) when (resource.status) {
                 Status.ERROR -> view?.snack("Upload was unsuccessful")
 
@@ -100,7 +113,7 @@ class ScreenUpload : Fragment(), Injectable, OnBackPressedListener {
     }
 
     override fun onBackPressed() {
-        activity?.supportFragmentManager?.popBackStack(ScreenCamera.SCREEN_TAG, 0)
+
     }
 
     companion object {

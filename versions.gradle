@@ -8,7 +8,7 @@ def versions = [:]
 // Android
 versions.androidx_support = "1.0.0-rc01"
 versions.androidx_arch = "2.0.0-rc01"
-versions.android_gradle_plugin = '3.2.0-beta05'
+versions.android_gradle_plugin = '3.2.0-rc02'
 versions.android_ktx = "1.0.0-rc01"
 versions.constraint_layout = "1.1.2"
 

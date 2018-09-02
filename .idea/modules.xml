@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:///mnt/3d80be5a-2dd9-4bfb-9156-084d4188b1a4/Projects/personal/public/CameraUploadExample/app/CameraUploadExample-app.iml" filepath="/mnt/3d80be5a-2dd9-4bfb-9156-084d4188b1a4/Projects/personal/public/CameraUploadExample/app/CameraUploadExample-app.iml" />
-      <module fileurl="file:///mnt/3d80be5a-2dd9-4bfb-9156-084d4188b1a4/Projects/personal/public/CameraUploadExample/public-CameraUploadExample.iml" filepath="/mnt/3d80be5a-2dd9-4bfb-9156-084d4188b1a4/Projects/personal/public/CameraUploadExample/public-CameraUploadExample.iml" />
+      <module fileurl="file:///mnt/3d80be5a-2dd9-4bfb-9156-084d4188b1a4/Projects/personal/androidsamples/CameraUploadExample/androidsamples-CameraUploadExample.iml" filepath="/mnt/3d80be5a-2dd9-4bfb-9156-084d4188b1a4/Projects/personal/androidsamples/CameraUploadExample/androidsamples-CameraUploadExample.iml" />
+      <module fileurl="file:///mnt/3d80be5a-2dd9-4bfb-9156-084d4188b1a4/Projects/personal/androidsamples/CameraUploadExample/app/app.iml" filepath="/mnt/3d80be5a-2dd9-4bfb-9156-084d4188b1a4/Projects/personal/androidsamples/CameraUploadExample/app/app.iml" />
     </modules>
   </component>
 </project>

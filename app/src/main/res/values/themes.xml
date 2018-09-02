@@ -18,7 +18,7 @@
     </style>
 
     <!-- Toolbar Theme -->
-    <style name="ToolbarTheme" parent="Widget.AppCompat.Toolbar">
+    <style name="ToolbarTheme" parent="Widget.MaterialComponents.BottomAppBar.Colored">
         <item name="android:textColorPrimary">@color/lightAccentWhite</item>
         <item name="android:textColorSecondary">@color/lightAccentWhite</item>
         <item name="android:background">@color/mainBrandColour</item>
