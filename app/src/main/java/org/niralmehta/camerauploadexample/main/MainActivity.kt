@@ -14,9 +14,10 @@ import androidx.fragment.app.Fragment
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
-import kotlinx.android.synthetic.main.toolbar_main.*
+import kotlinx.android.synthetic.main.bottom_app_bar.*
 import org.niralmehta.camerauploadexample.R
 import org.niralmehta.camerauploadexample.screens.ScreenCamera
+import org.niralmehta.camerauploadexample.utils.fragment.addScreen
 import org.niralmehta.camerauploadexample.utils.interfaces.OnBackPressedListener
 import org.niralmehta.camerauploadexample.utils.view.snack
 import javax.inject.Inject
@@ -93,11 +94,16 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         }
     }
 
-    private fun setupToolbar() = setSupportActionBar(toolbar_main)
+    private fun setupToolbar() =
+        setSupportActionBar(bottom_app_bar)
 
-    private fun setupScreen() = supportFragmentManager.beginTransaction()
-        .replace(R.id.container_main, ScreenCamera(), ScreenCamera.SCREEN_TAG)
-        .commit()
+
+    private fun setupScreen() = addScreen(
+        ScreenCamera(),
+        ScreenCamera.SCREEN_TAG,
+        true,
+        true
+    )
 
 
     companion object {

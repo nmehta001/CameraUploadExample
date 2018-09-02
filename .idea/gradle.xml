@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="/mnt/3d80be5a-2dd9-4bfb-9156-084d4188b1a4/Projects/personal/androidsamples/CameraUploadExample" />
+            <option value="/mnt/3d80be5a-2dd9-4bfb-9156-084d4188b1a4/Projects/personal/androidsamples/CameraUploadExample/app" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

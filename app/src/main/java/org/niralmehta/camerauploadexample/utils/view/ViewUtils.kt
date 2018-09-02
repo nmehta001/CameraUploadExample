@@ -9,14 +9,22 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.bottom_app_bar.*
 import org.niralmehta.camerauploadexample.R
 
 
 /**
  * Collection of animation methods for floating action menu
  */
+
+fun setFabIcon(activity: FragmentActivity?, drawable: Int, fragment: Fragment) =
+    activity?.bottom_app_bar_fab?.setImageDrawable(fragment.getResDrawable(drawable))
+
+fun getAppBarFab(activity: FragmentActivity?): FloatingActionButton? =
+    activity?.bottom_app_bar_fab
 
 fun fabOpen(context: Context): Animation =
     AnimationUtils.loadAnimation(context, R.anim.fab_open)

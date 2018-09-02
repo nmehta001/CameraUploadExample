@@ -7,26 +7,29 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fab_menu.*
 import kotlinx.android.synthetic.main.screen_camera.*
 import org.niralmehta.camerauploadexample.R
 import org.niralmehta.camerauploadexample.di.Injectable
 import org.niralmehta.camerauploadexample.modules.upload.fragment.ScreenUpload
 import org.niralmehta.camerauploadexample.utils.interfaces.OnBackPressedListener
-import org.niralmehta.camerauploadexample.utils.view.*
+import org.niralmehta.camerauploadexample.utils.view.getAppBarFab
+import org.niralmehta.camerauploadexample.utils.view.setFabIcon
+import org.niralmehta.camerauploadexample.utils.view.snack
 
 
 class ScreenCamera : Fragment(), Injectable, OnBackPressedListener {
 
     private lateinit var cameraView: View
     private var photo: Bitmap? = null
-    private var isFabOpen: Boolean = false
     private lateinit var uri: Uri
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -38,8 +41,10 @@ class ScreenCamera : Fragment(), Injectable, OnBackPressedListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        fab.setOnClickListener {
-            setupFabMenu()
+        setFabIcon(activity, R.drawable.ic_camera_dark, this)
+
+        getAppBarFab(activity)?.setOnClickListener {
+            launchCamera()
         }
     }
 
@@ -63,14 +68,17 @@ class ScreenCamera : Fragment(), Injectable, OnBackPressedListener {
         }
     }
 
-    private fun setupFabMenu() {
-        fab1.setImageDrawable(getResDrawable(R.drawable.ic_camera))
-        fab2.setImageDrawable(getResDrawable(R.drawable.ic_upload))
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.menu_main, menu)
+        menu?.findItem(R.id.action_camera)?.isVisible = false
+    }
 
-        fab1.setOnClickListener { launchCamera() }
-        fab2.setOnClickListener { uploadImage() }
-
-        if (isFabOpen) fabOpen() else fabClosed()
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.action_upload -> uploadImage()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun launchCamera() {
@@ -82,7 +90,6 @@ class ScreenCamera : Fragment(), Injectable, OnBackPressedListener {
             .putExtra(MediaStore.EXTRA_OUTPUT, uri)
 
         this.startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE)
-        isFabOpen = false
     }
 
     private fun uploadImage() {
@@ -95,28 +102,6 @@ class ScreenCamera : Fragment(), Injectable, OnBackPressedListener {
                 ?.commit()
         } else {
             view?.snack("Please take a photo first")
-        }
-    }
-
-    private fun fabOpen() {
-        context?.let {
-            fab.animate(rotateBackwards(it))
-            fab1.animate(fabClose(it))
-            fab1.isClickable = true
-            fab2.animate(fabClose(it))
-            fab2.isClickable = false
-            isFabOpen = false
-        }
-    }
-
-    private fun fabClosed() {
-        context?.let {
-            fab.animate(rotateForwards(it))
-            fab1.animate(fabOpen(it))
-            fab1.isClickable = true
-            fab2.animate(fabOpen(it))
-            fab2.isClickable = true
-            isFabOpen = true
         }
     }
 

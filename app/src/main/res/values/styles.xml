@@ -9,7 +9,7 @@
         <item name="android:foreground">@drawable/effect_ripple_light</item>
     </style>
 
-    <style name="fabDark" parent="@style/Widget.Design.FloatingActionButton">
+    <style name="fabDark" parent="@style/Widget.MaterialComponents.FloatingActionButton">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:elevation">6dp</item>
@@ -17,15 +17,8 @@
         <item name="borderWidth">0dp</item>
         <item name="android:colorControlActivated">@color/lightAccent</item>
         <item name="android:colorControlHighlight">@color/lightAccent</item>
-        <item name="android:background">@color/mainBrandColour</item>
-        <item name="android:foreground">@drawable/effect_ripple_light</item>
-    </style>
-
-    <style name="fabLight" parent="fabDark">
-        <item name="android:background">@color/lightAccent</item>
-        <item name="android:colorControlActivated">@color/mainBrandColour</item>
-        <item name="android:colorControlHighlight">@color/mainBrandColour</item>
-        <item name="android:foreground">@drawable/effect_ripple_dark</item>
+        <item name="android:backgroundTint">@color/mainBrandColour</item>
+        <item name="android:foregroundTint">@drawable/effect_ripple_light</item>
     </style>
 
     <style name="editText" parent="@style/Widget.AppCompat.EditText">

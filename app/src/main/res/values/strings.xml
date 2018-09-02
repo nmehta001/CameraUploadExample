@@ -12,4 +12,6 @@
     <string name="title">TITLE</string>
     <string name="description">DESCRIPTION</string>
     <string name="success">SUCCESS</string>
+    <string name="upload_image">Upload image</string>
+    <string name="take_a_photo">take a photo</string>
 </resources>
